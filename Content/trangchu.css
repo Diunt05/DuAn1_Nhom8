@@ -1,0 +1,872 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.header-top {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.contact-info i {
+    color: #ff6a00;
+}
+.contact-info span, .contact-info a {
+    color: #333;
+    text-decoration: none;    
+}
+.contact-info span{
+    padding-right: 10px;
+    border-right: 1px solid #ddd;
+
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    padding-right: 10px;
+    border-right: 1px solid #ddd;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+/* Header trên cùng */
+.header1 {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img {
+    height: 40px;
+}
+.logo span {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 55%;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+}
+.search-bar i {
+    color: #888;
+}
+
+/* Header dưới cùng */
+.header2 {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.btn-category {
+    width: 243px;
+    height: 50px;
+    margin-right: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff6a00;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    gap: 5px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+.menu-item {
+    color: #9a9797;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+}
+.menu-item:hover {
+    text-decoration: none;
+    color: #ff6a00;
+}
+
+/* Biểu tượng và giỏ hàng */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.icons a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+.icon-badge {
+    position: relative;
+}
+
+.hi{
+    display: flex;
+}
+
+.hi >a > p{
+    margin-left: 10px;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff6a00;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 2px 6px;
+}
+
+/* Container quảng cáo */
+.container-12{
+    margin-bottom: 20px;
+}
+.slider-container {
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.slider-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 40px;
+}
+
+.slider-btn {
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 30px;
+    width: 45px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.highlight-text {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-info h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+}
+
+.discount-label {
+    font-size: 16px;
+    color: gray;
+}
+
+.discount-value {
+    font-size: 24px;
+    color: green;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.buy-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6a00;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-image img {
+    width: 300px;
+    height: auto;
+}
+
+/* Dòng lợi ích */
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+.benefit-item {
+    text-align: center;
+    max-width: 200px;
+}
+.benefit-item i {
+    font-size: 30px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+.benefit-item h4 {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+.benefit-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Các sản phẩm giảm giá */
+.discount-products {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.product-1 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+.product-1 img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.product-1 h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.product-1 p {
+    color: #888;
+    font-size: 14px;
+}
+.discount{
+    position: absolute;
+    background-color: #ff6a00;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.deal-container {
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.deal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.deal-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.countdown {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.countdown .time {
+    font-weight: bold;
+}
+
+.view-all-btn {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-slider {
+    display: flex;
+    align-items: center;
+}
+
+.slider-btn {
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-list {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.product-item {
+    text-align: center;
+    flex: 0 0 200px;
+}
+
+.product-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.price-new {
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+}
+
+.price-old {
+    font-size: 14px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.product-name {
+    font-size: 14px;
+    color: #ff5722;
+    margin-top: 5px;
+}
+
+/* Featured Category Section */
+.featured-category {
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.featured-category h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.featured-content {
+    padding: 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Carousel (Left Side) */
+.carousel {
+    flex: 2;
+    position: relative;
+    max-width: 650px;
+}
+
+.carousel-slide {
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-caption h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Featured Products List (Right Side) */
+.featured-products {
+    flex: 1;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.featured-products h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.featured-products ul {
+    list-style: none;
+    padding: 0;
+}
+
+.featured-products ul li {
+    margin-bottom: 8px;
+}
+
+.featured-products ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.featured-products ul li a:hover {
+    color: #ff5722;
+}
+
+.featured-products button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #ff5722;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.featured-products button:hover {
+    background-color: #ff5722;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .featured-content {
+        flex-direction: column;
+    }
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Section Header */
+.featured-products-section {
+    margin-bottom: 30px;
+    /* padding: 20px; */
+}
+.featured-products-section > h2 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.tab:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1em;
+    color: #0073e6;
+    margin: 10px 0 5px;
+}
+
+.product-card p {
+    font-size: 1em;
+    color: #333;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ffff00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Section Header */
+.featured-products-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.tab:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1em;
+    color: #0073e6;
+    margin: 10px 0 5px;
+}
+
+.product-card p {
+    font-size: 1em;
+    color: #333;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+.old-price{
+        text-decoration: line-through;
+        color: #999;
+        font-size: 14px;
+}
+
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff6b00;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.star-rating {
+    font-size: 15px;
+    color: #ccc;
+  }
+  .star-rating .star {
+    color: gold;
+  }
+
+  
+  /* foooter */
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #f0f0f0;  
+    margin: 0;  
+    padding: 20px;  
+}  
+
+.footer {  
+    background-color: #fff;  
+    padding: 20px;  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: flex-start;  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+}  
+
+.contact-info, .policies, .categories, .links {  
+    flex: 1;  
+    margin: 0 10px;  
+}  
+
+h2 {  
+    font-size: 18px;  
+    margin-bottom: 10px;  
+    font-weight: bold;  
+}  
+
+p {  
+    margin: 5px 0;  
+}  
+
+.phone {  
+    color: blue;  
+    font-weight: bold;  
+}  
+
+a {  
+    color: blue;  
+    text-decoration: none;  
+}  
+
+a:hover {  
+    text-decoration: underline;  
+}  
+
+ul {  
+    list-style: none;  
+    padding: 0;  
+}  
+
+ul li {  
+    margin: 5px 0;  
+}
+/* logo */
+
+        /* Style for icons */
+.social-icons {
+    display: flex;
+     gap: 15px;
+     font-size: 24px;
+}
+.social-icons a {
+           
+    text-decoration: none;
+    transition: color 0.3s;
+ }
+.social-icons p a {
+    color: #e1ff00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #0073e6;
+}
+.p a{
+    color: rgb(0, 13, 252);
+}
+.y a{
+    color: red;
+}
+.g a{
+    color: rgb(180, 180, 180);
+}
+
+.bantin{
+    display: flex;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: 20px;
+}
+.bantin_title{
+    margin: 10px 90px;
+}
+.bantin_title h1{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.bantin_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 30px 50px;
+}
+
+.bantin_search input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.bantin_search button{
+    width: 95px;
+    height: 45px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff6a00;
+    color: #fff;
+}

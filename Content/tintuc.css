@@ -1,0 +1,138 @@
+/* banner */
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    background-color: #f8f9fa;  
+}  
+
+.tintuc {  
+    text-align: center;  
+}  
+
+main {  
+    display: flex;  
+    flex-wrap: wrap;  
+    justify-content: space-around;  
+    padding: 20px;  
+}  
+
+.post {  
+    background-color: #fff;  
+    border: 1px solid #e0e0e0;  
+    border-radius: 5px;  
+    width: calc(30% - 20px);  
+    margin: 10px;  
+    padding: 15px;  
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  
+    text-align: center;  
+}  
+
+.post img {  
+    max-width: 100%;  
+    border-radius: 5px;  
+}  
+
+.post-info {  
+    margin-top: 10px;  
+}  
+
+.category {  
+    color: #999;  
+    font-size: 0.9em;  
+}  
+
+.date {  
+    color: #999;  
+    font-size: 0.8em;  
+    margin-top: 5px;  
+}
+/* Tin tức */
+.highlight {  
+    color: #FF5722; 
+    font-weight: bold; 
+}  
+/* foooter */
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #f0f0f0;  
+    margin: 0;  
+    padding: 20px;  
+}  
+
+.footer {  
+    background-color: #fff;  
+    padding: 20px;  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: flex-start;  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+}  
+
+.contact-info, .policies, .categories, .links {  
+    flex: 1;  
+    margin: 0 10px;  
+}  
+
+h2 {  
+    font-size: 18px;  
+    margin-bottom: 10px;  
+    font-weight: bold;  
+}  
+
+p {  
+    margin: 5px 0;  
+}  
+
+.phone {  
+    color: blue;  
+    font-weight: bold;  
+}  
+
+a {  
+    color: blue;  
+    text-decoration: none;  
+}  
+
+a:hover {  
+    text-decoration: underline;  
+}  
+
+ul {  
+    list-style: none;  
+    padding: 0;  
+}  
+
+ul li {  
+    margin: 5px 0;  
+}
+/* logo */
+
+        /* Style for icons */
+.social-icons {
+    display: flex;
+     gap: 15px;
+     font-size: 24px;
+}
+.social-icons a {
+           
+    text-decoration: none;
+    transition: color 0.3s;
+ }
+.social-icons p a {
+    color: #e1ff00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #0073e6;
+}
+.p a{
+    color: rgb(0, 13, 252);
+}
+.y a{
+    color: red;
+}
+.g a{
+    color: rgb(180, 180, 180);
+}
