@@ -1,11 +1,63 @@
+<?php
+define('BASEPATH', TRUE);
+require '../models/ConnectDatabase.php'; // Kết nối tới database
+
+session_start(); // Bắt đầu session để lưu thông tin người dùng
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    try {
+        $dsn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $email_user = $_POST['email_user'];
+        $password_user = $_POST['password_user'];
+
+        // Kiểm tra email trong cơ sở dữ liệu
+        $sql = "SELECT * FROM user WHERE email_user = :email_user LIMIT 1";
+        $stmt = $dsn->prepare($sql);
+        $stmt->bindValue(':email_user', $email_user);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            // Nếu email tồn tại, kiểm tra mật khẩu
+            if (password_verify($password_user, $user['password_user'])) {
+                // Lưu thông tin người dùng vào session
+                $_SESSION['user_id'] = $user['id_user'];
+                $_SESSION['user_name'] = $user['name_user'];
+
+                // Chuyển hướng tới trang dashboard
+                header("Location: ../views/dashboard.php");
+                exit();
+            } else {
+                // Mật khẩu không đúng
+                echo '<script>alert("Mật khẩu không đúng!");</script>';
+            }
+        } else {
+            // Email không tồn tại
+            echo '<script>alert("Email không tồn tại trong hệ thống!");</script>';
+        }
+    } catch (PDOException $e) {
+        // Lỗi kết nối hoặc xử lý
+        $error = "Error: " . $e->getMessage();
+        echo '<script>alert("' . $error . '");</script>';
+    }
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
-    <link rel="stylesheet" href="trangchu.css">
-    <link rel="stylesheet" href="register.css">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="../Content/login.css">
+    <link rel="stylesheet" href="../Content/trangchu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -88,36 +140,30 @@
         </div>
     </header>
 
-    <div class="register-container">
+    <div class="login-container">
         <!-- Logo -->
         <div class="logo">TDT Smart</div>
 
         <!-- Tiêu đề -->
-        <div class="register-title">Tạo tài khoản mới</div>
+        <div class="login-title">Đăng nhập vào tài khoản của bạn</div>
 
-        <!-- Form đăng ký -->
-        <form>
-            <!-- Nhập tên -->
-            <input type="text" class="input-field" placeholder="Họ và Tên" required>
-
-            <!-- Nhập email -->
-            <input type="email" class="input-field" placeholder="Email" required>
-
-            <!-- Nhập số điện thoại -->
-            <input type="tel" class="input-field" placeholder="Số điện thoại" required>
+        <!-- Form đăng nhập -->
+        <form action="login.php" method="POST">
+            <!-- Nhập tài khoản -->
+            <input type="text" class="input-field" name="email_user" placeholder="Email hoặc Số điện thoại" required>
 
             <!-- Nhập mật khẩu -->
-            <input type="password" class="input-field" placeholder="Mật khẩu" required>
+            <input type="password" class="input-field" name="password_user" placeholder="Mật khẩu" required>
 
-            <!-- Nhập lại mật khẩu -->
-            <input type="password" class="input-field" placeholder="Nhập lại mật khẩu" required>
-
-            <!-- Nút đăng ký -->
-            <button type="submit" class="register-button">Đăng ký</button>
+            <!-- Nút đăng nhập -->
+            <button type="submit" class="login-button">Đăng nhập</button>
         </form>
 
-        <!-- Link đến trang đăng nhập -->
-        <a href="./login.html" class="login-link">Đã có tài khoản? Đăng nhập</a>
+        <!-- Link quên mật khẩu và đăng ký -->
+        <div class="login-links">
+            <a href="#">Quên mật khẩu?</a>
+            <a href="./register.php">Đăng ký tài khoản</a>
+        </div>
     </div>
 
     <br>
@@ -264,5 +310,7 @@
         <!-- Footer -->
     </div>
 
+    
 </body>
 </html>
+    

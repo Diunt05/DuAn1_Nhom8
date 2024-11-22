@@ -1,11 +1,66 @@
+<?php
+define('BASEPATH', TRUE);
+require '../models/ConnectDatabase.php'; // Kết nối tới database
+
+if (isset($_POST['submit'])) {
+    try {
+        $dsn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $name_user = $_POST['name_user'];
+        $email_user = $_POST['email_user'];
+        $password_user = $_POST['password_user'];
+        $confirm_password = $_POST['confirm_password'];
+
+        // Kiểm tra mật khẩu và nhập lại mật khẩu
+        if ($password_user !== $confirm_password) {
+            echo '<script>alert("Mật khẩu và nhập lại mật khẩu không khớp!");</script>';
+        } else {
+            // Mã hóa mật khẩu
+            $password_user = password_hash($password_user, PASSWORD_BCRYPT, array("cost" => 12));
+
+            $sql = "SELECT COUNT(email_user) AS num FROM user WHERE email_user = :email_user";
+            $stmt = $dsn->prepare($sql);
+            $stmt->bindValue(':email_user', $email_user);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row['num'] > 0) {
+                echo '<script>alert("Email đã tồn tại!");</script>';
+            } else {
+                $stmt = $dsn->prepare("INSERT INTO user (name_user, email_user, password_user) 
+                VALUES (:name_user, :email_user, :password_user)");
+
+                $stmt->bindParam(':name_user', $name_user);
+                $stmt->bindParam(':email_user', $email_user);
+                $stmt->bindParam(':password_user', $password_user);
+
+                if ($stmt->execute()) {
+                    echo '<script>alert("Đăng ký thành công!");</script>';
+                    header("Location: ../views/login.php");
+                } else {
+                    $error = "Error: " . $stmt->errorInfo()[2];
+                    echo '<script>alert("' . $error . '");</script>';
+                }
+            }
+        }
+    } catch (PDOException $e) {
+        $error = "Error: " . $e->getMessage();
+        echo '<script>alert("' . $error . '");</script>';
+    }
+}
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
-    <link rel="stylesheet" href="trangchu.css">
-    <link rel="stylesheet" href="register.css">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="../Content/register.css">
+    <link rel="stylesheet" href="../Content/trangchu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -96,24 +151,21 @@
         <div class="register-title">Tạo tài khoản mới</div>
 
         <!-- Form đăng ký -->
-        <form>
+        <form action="" method="POST" action="register.php">
             <!-- Nhập tên -->
-            <input type="text" class="input-field" placeholder="Họ và Tên" required>
+            <input type="text" class="input-field" name="name_user" placeholder="Họ và Tên" required>
 
             <!-- Nhập email -->
-            <input type="email" class="input-field" placeholder="Email" required>
-
-            <!-- Nhập số điện thoại -->
-            <input type="tel" class="input-field" placeholder="Số điện thoại" required>
+            <input type="email" class="input-field" name="email_user" placeholder="Email" required>
 
             <!-- Nhập mật khẩu -->
-            <input type="password" class="input-field" placeholder="Mật khẩu" required>
+            <input type="password" class="input-field" name="password_user" placeholder="Mật khẩu" required>
 
             <!-- Nhập lại mật khẩu -->
-            <input type="password" class="input-field" placeholder="Nhập lại mật khẩu" required>
+            <input type="password" class="input-field" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
 
             <!-- Nút đăng ký -->
-            <button type="submit" class="register-button">Đăng ký</button>
+            <button type="submit" class="register-button" name="submit">Đăng ký</button>
         </form>
 
         <!-- Link đến trang đăng nhập -->
